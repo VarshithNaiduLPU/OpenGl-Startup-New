@@ -26,9 +26,9 @@ target_link_libraries(${PROJECT_NAME} opengl32 glfw3dll)
 # Set the output directory for the executable
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Debug)  # Adjust for your build type
 
-# # Add a custom command to copy the Shaders folder after build
-# add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-#     COMMAND ${CMAKE_COMMAND} -E copy_directory
-#         "${CMAKE_CURRENT_SOURCE_DIR}/src/Shaders"
-#         "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Shaders"
-# )
+# Add a custom command to copy the Shaders folder after build
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/Shaders"
+        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Shaders"
+)
